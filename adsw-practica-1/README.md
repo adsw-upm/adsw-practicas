@@ -1,15 +1,6 @@
 # Práctica 1 - Ordenación
 
-Análisis y Diseño de Software, 2022
-
-Grado en Ingeniería de Tecnologías y Servicios de 
-Telecomunicación 
-
-ETSI de Telecomunicación
-
-Universidad Politécnica de Madrid
-
-# Introducción
+## Introducción
 
 En esta práctica, vamos a profundizar en el uso y la implementación de ordenación en Java.
 Crearemos un recomendador de películas.
@@ -29,22 +20,22 @@ La puntuación de la práctica será sobre 10 puntos, con la siguiente distribuc
 * Ejercicio 2: 2 puntos
 * Ejercicio 3: 6 puntos
 
-# Objetivos
+## Objetivos
 
 1. Implementar un algoritmo de ordenación
 2. Implementar un recomendador optimizado
 3. Desarrollar pruebas unitarias para evaluar las soluciones y su eficiencia
 
-# Diagrama de clases
+## Diagrama de clases
 
-Los elementos principales de esta práctica son los siguientes:
+Los elementos generales para esta práctica son los siguientes:
 
-![Diagrama de clases](img/clases.png)
+![Diagrama de clases comunes](img/general.png)
 
-# Actividades
+## Actividades
 
 
-## Ejercicio 1: Desarrollar un algoritmo de ordenación utilizando `compareTo`
+### Ejercicio 1: Desarrollar un algoritmo de ordenación utilizando `compareTo`
 
 En el ejercicio 2 del laboratorio 1, desarrollamos el método `compareTo` de la clase `Movie`.
 Como hemos visto en clase de teoría, este método es útil para implementar algoritmos de ordenación porque nos define el orden relativo de dos instancias (e.d., objetos) de una misma clase.
@@ -62,12 +53,16 @@ Para conseguir diferentes entradas, una opción es desordenar un array conocido 
 Para cambiar el orden de un array se pueden utilizar los [métodos de la biblioteca estándar de java tales como `Collections.shuffle`](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collections.html), o manualmente intercambiar elementos en el array mediante de forma análoga al método `swap` en las transparencias de ordenación.
 Una vez desordenado el array, se puede proceder a ordenarlo utilizando `DefaultSorter`, y a comprobar que el resultado está completamente ordenado.
 
+El diagrama de clases de este ejercicio es el siguiente:
+
+![Diagrama de clases Ejercicio 1](img/ej1.png)
+
 
 Resumen de modificaciones:
 
 * Método `sort` de `DefaultSorter` en `es.upm.dit.adsw.p1.ej1`
 
-## Ejercicio 2: Optimizar el recomendador `DefaultRecommender`
+### Ejercicio 2: Optimizar el recomendador `DefaultRecommender`
 
 En el laboratorio 1, el último ejercicio consistió en desarrollar un algoritmo de recomendación de películas.
 El algoritmo más simple para esta tarea consistiría en realizar varias búsquedas sobre la lista completa de películas.
@@ -75,6 +70,17 @@ Sin embargo, podemos conseguir una complejidad menor si nos aseguramos de que el
 
 Para ello, vamos a completar la implementación de `DefaultRecommender`, de tal forma que su conjunto de películas esté ordenado, y que la recomendación de películas en cualquier idioma (`recommend(int n)`) sea lo más rápida posible.
 Para la búsqueda para un solo idioma (`recommend(int n, String lang)`), utilizaremos el mismo conjunto ordenado, filtrando de la manera adecuada.
+
+El diagrama de clases es el siguiente:
+
+![Diagrama de clases Ejercicio 2](img/ej2.png)
+
+Resumen de modificaciones:
+
+* En `DefaultRecommender` en `es.upm.dit.adsw.p1.ej2`:
+    * Constructor
+    * Método `recommend(int n)`
+    * Método `recommend(int n, String lang)`
 
 **Nota**: al realizar una recomendación **no se debe modificar la lista de películas disponibles**.
 Dos llamadas consecutivas a la función `recommend` deben dar el mismo resultado.
@@ -84,14 +90,8 @@ Es decir, puede que el tamaño de la lista recomendada sea menor que el pedido s
 
 **Nota**: Se deben evitar operaciones costosas innecesarias, tales como ordenar la lista de películas múltiples veces.
 
-Resumen de modificaciones:
 
-* En `DefaultRecommender` en `es.upm.dit.adsw.p1.ej2`:
-    * Constructor
-    * Método `recommend(int n)`
-    * Método `recommend(int n, String lang)`
-
-## Ejercicio 3: Implementar un nuevo recomendador para idiomas
+### Ejercicio 3: Implementar un nuevo recomendador para idiomas
 
 Al utilizar el recomendador, vemos que para algunos idiomas se devuelven pocas películas, o la calidad de las películas recomendadas es muy baja.
 Eso nos lleva a tener pocos resultados, o a que algunos de los resultados no sean muy buenos.
@@ -122,12 +122,16 @@ La primera tarea en este ejercicio será entender este código.
 Por último, la implementación de `recommend(int n, String lang)` está vacía.
 Ayudándonos de la implementación del otro método, y de la definición de `score`, no debería resultarnos difícil completarla.
 
+El diagrama de clases es el siguiente:
+
+![Diagrama de clases Ejercicio 3](img/ej3.png)
+
 
 Resumen de modificaciones:
 
 * método `recommend(int n, String lang)` de `LanguageRecommender` en `es.upm.dit.adsw.p1.ej3`:
 
-## Ejercicio 4 (Opcional): Implementar un nuevo recomendador mediante `Comparator`
+### Ejercicio 4 (Opcional): Implementar un nuevo recomendador mediante `Comparator`
 
 Se aconseja complejar este ejercicio para entender cómo se consigue ordenar con diferentes criterios en Java.
 No obstante, este ejercicio es completamente opcional y no se verá reflejado en la nota.
@@ -155,17 +159,34 @@ Adicionalmente, se proporciona la clase `LanguageRecommender`, que junta `Custom
 Para facilitar el desarrollo, la clase `es.upm.dit.adsw.p1.P1Tester` incluye una prueba de este recomendador, pero está comentada.
 Para probar nuestra implementación, sólo tenemos que descomentar este código.
 
+El diagrama de clases para este ejercicio es el siguiente:
+
+![Diagrama de clases Ejercicio 4](img/ej4.png)
+
 
 Resumen de modificaciones:
 
 * método `sort` de `CustomSorter` en `es.upm.dit.adsw.p1.ej4`:
 * método `compare` de `LanguagePopularityComparator` en `es.upm.dit.adsw.p1.ej4`
 
-# Anexos:
+## Entrega de la práctica para la evaluación
+
+El proyecto que hemos instalado incluye un script de entrega de prácticas, de forma similar al laboratorio 0. El proceso de entrega es el siguiente:
+
+- El proyecto ADSW-practica1-2022 incluye un script de entrega (`Practica1Entrega.launch`) que podemos ejecutar seleccionando el script y ejecutando `Run > Run As > Practica1Entrega`. Este script nos va indicando en la consola de Eclipse los pasos que va dando (chequeos y compilaciones, ejecuciones de pruebas, calculo de notas, comprimir entregas, subidas a moodle, ...). Nos muestra la estimación de nota calculada. 
+
+- Si hay errores de compilación, o si lo que se debe desarrollar en la práctica no se ajusta a lo que indica la guía (identificadores, signaturas de métodos, visibilidad de clases o métodos, ...) las pruebas no se pueden ejecutar y el fichero zip no se construirá. Si ha podido ejecutar pruebas dejará construido un fichero `ADSW-practica1-2022.zip` en la raiz del proyecto Eclipse. Para hacerlo visible debemos refrescar el proyecto con el comando Refresh del menú de contexto del explorador de proyectos de Eclipse.
+
+- Si tenemos un fichero entregable, se arranca un browser empotrado que nos permite logarnos en Moodle. Es la primera vez que utilizamos esta herramienta y es compleja porque depende de muchas cosas (versión de Eclipse, sistema operativo, versión Java que utilizamos). Si queremos hacer la entrega, nos logamos en moodle, y subirá la entrega, y subirá también la nota calculada. Si no queremos hacer la entrega simplemente cerramos el browser y terminará la entrega, sin subirse nada a Moodle. 
+
+- La versión actual de Moodle, algunas veces se queda paradas, y dejan de mandar datos al browser, y eso se puede arreglar algunas veces si recargamos la página en el browser empotrado. 
+
+
+## Anexos:
 
 Además de los anexos específicos de la práctica, se recomienda consultar de nuevo los anexos del laboratorio 1.
 
-## Anexo 1: Manejar Arrays, ArrayLists y Lists
+### Anexo 1: Manejar Arrays, ArrayLists y Lists
 
 Tanto en el laboratorio como en la práctica se usan diferentes tipos de estructuras de datos (contenedores) para representar un conjunto de películas.
 Algunos métodos aceptan como parámetro o devuelven un objeto del tipo `Movie[]` (array o vector), otros del tipo `List<Movie>` y otros objetos del tipo `ArrayList<Movie>`.
@@ -211,7 +232,7 @@ Por ejemplo, la conversión de/desde `ArrayList` es menos costosa que de/desde `
 
 **Nota**: en el método `toArray` utilizamos `Movie[]::new`, que es una referencia al método que crea un nuevo array de películas. Se podría pensar en usar `new Movie[]` como argumento, pero en ese caso lo que sucedería es que se intentaría crear un nuevo array (pero sin especificar tamaño, lo que es un error), que luego se intentaría pasar como argumento.
 
-## Anexo 2: Orden ascendente y descendente y límites en los Arrays/Listas
+### Anexo 2: Orden ascendente y descendente y límites en los Arrays/Listas
 
 Hasta ahora, siempre hemos ordenado los elementos en orden ascendente.
 Por tanto, elementos menores aparecen primero en el array.
