@@ -52,7 +52,7 @@ La clase ```MonitorSegmentos``` es un monitor que sincroniza objetos entre ```In
 
 `public void putSegmento​(SegmentoInterface segmento, int id)`
 
-Un método de la clase ```MonitorSegmentos``` invoca a este método para proporcionar un segmento.
+Un método de la clase ```InvertirActores``` invoca a este método para proporcionar un segmento.
 
 * **Parameters**
     - *segmento*: el segmento a procesar
@@ -74,7 +74,7 @@ Una hebra invoca a este método para obtener un segmento. Este método tiene que
 
 `public java.util.Map<java.lang.String,​java.util.List<Movie>> getResultado(int id) throws java.lang.InterruptedException`
 
-Un método de la clase ```MonitorSegmentos``` invoca a este método para obtener un resultado al procesar un segmento.
+Un método de la clase ```InvertirActores``` invoca a este método para obtener un resultado al procesar un segmento.
 
 * **Parameters**
     - id: identificador de la hebra. Se usa para conocer cuáles son las hebras que invoca este método en las trazas.
