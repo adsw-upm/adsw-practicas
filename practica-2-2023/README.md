@@ -1,3 +1,11 @@
+### Análisis y Diseño de Software, 2023
+
+Grado en Ingeniería de Tecnologías y Servicios de
+Telecomunicación
+ETSI de Telecomunicación
+Universidad Politécnica de Madrid
+
+
 # Práctica 2 - Diccionarios implementados con árboles 📚🌳🔍
 
 El objetivo del laboratorio y práctica 2 consiste en desarrollar un diccionario usando árboles para mejorar la implementación ofrecida por los profesores que consiste en un array desordenado.
