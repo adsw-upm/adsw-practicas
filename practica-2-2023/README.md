@@ -1,9 +1,8 @@
 ### Análisis y Diseño de Software, 2023
 
-Grado en Ingeniería de Tecnologías y Servicios de
-Telecomunicación
-ETSI de Telecomunicación
-Universidad Politécnica de Madrid
+Grado en Ingeniería de Tecnologías y Servicios de Telecomunicación  
+ETSI de Telecomunicación  
+Universidad Politécnica de Madrid  
 
 
 # Práctica 2 - Diccionarios implementados con árboles 📚🌳🔍
