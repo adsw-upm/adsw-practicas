@@ -221,7 +221,7 @@ Podemos utilizar esos dos atributos, para comparar primero por puntuación, y cu
 Con esas modificaciones evitaremos los problemas que teníamos y podremos hacer una nueva implementación y comparar sus tiempos
 de ejecución.
 
-Otra alternativa, si no queremos tocar la implementación de `Tablero`, es construir `TreeMap` pasado como parámetro una instancia 
+Otra alternativa, si no queremos tocar la implementación de `Tablero`, es construir `TreeMap` pasando como parámetro una instancia 
 de `Comparator` (que implementa `compare`) y `TreeMap` utilizará ese comparador en la ordenación de 
 las claves; la implementación de `compare` podrá definir el orden que nos interese entre los tableros. 
 
