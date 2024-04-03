@@ -2,7 +2,7 @@
 
 Esta práctica es una continuación directa del Laboratorio 2 y se utilizará el mismo proyecto. 
 En los últimos pasos se implementaban formas de recuperar la partida de un tablero mediante búsquedas lineales. 
-Las pruebas finales permitian ver que los tiempos de ejecución de esas soluciones. Para el conjunto de
+Las pruebas finales permitian ver que los tiempos de ejecución de esas soluciones para el conjunto de
 partidas y tableros que tenemos en el fichero partidas.txt, tienen un tiempo largo para la búsqueda lineal. En estas
 prácticas vamos a emplear soluciones alternativas. En concreto vamos a hacer pruebas con dos
 tipos de diccionarios que soporta la biblioteca Java:
