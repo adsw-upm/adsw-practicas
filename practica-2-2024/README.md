@@ -42,7 +42,7 @@ partidas que tienen tableros con una puntuación igual o superior a la puntuaci�
 método puede reutilizar los métodos `getTablerosConPuntuaconMinima` y `partidaDeTablero` en su implementación.
 
 En esta práctica sólo trabajaremos con esos métodos de `GestorTableros` y actualizando los métodos `equals`, 
-`hashMap` y `compareTo` de `Tablero`.
+`hashCode` y `compareTo` de `Tablero`.
 
 ## Paso 1: Obtener la partida de un tablero, basado en tablas hash
 
