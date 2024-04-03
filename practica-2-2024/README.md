@@ -208,7 +208,7 @@ puede devolver la partida de otro tablero con la misma puntuación.
 Para poder utilizar `TreeMap` debemos cambiar la implementación de `Comparable` de `Tablero`. Si queremos, 
 seguir utilizando la implementación de `compareTo` para ordenar por puntuación, pero queremos poder utilizar
 todos los tabletos como clave de `TreeMap`, debemos incluir un segundo criterio de comparación, y evitar devolver 
-0 cuando comparamos 2 tableros. Podemos campiar la implementación de `Tablero` para incluir nuevos atributos que 
+0 cuando comparamos 2 tableros. Podemos cambiar la implementación de `Tablero` para incluir nuevos atributos que 
 permitan utilizar ese segundo criterio de comparación cuando las puntuaciones son iguales. Dos ejemplos diferentes de soluciones serían:
 
 - Podemos asignar un identificador de tablero cada vez que construimos un tablero. Un atributo `static` entero nos puede representar
