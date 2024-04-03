@@ -50,7 +50,7 @@ El objetivo es modificar el método partidaDeTablero utilizando tablas hash. La 
 
 Es importante tener clara la forma en la que trabaja cada implementación de `Map`.
 
-En la clase `GestorTableros`, el atributo que relacionen tablero y partido se debe se basar en el intefaz Map, como se muestra:
+En la clase `GestorTableros`, el atributo que relacionen tablero y partida se debe se basar en el intefaz Map, como se muestra:
 
 ```
 private Map<Tablero, Partida> tablero2Partida;
