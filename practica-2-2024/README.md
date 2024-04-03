@@ -125,7 +125,7 @@ y `hashCode`. Si ejecutamos la prueba que mide los tiempos de ejecución, veremo
 que la coincidencia de `hashCode` e `equals` para dos tableros, hace que el `put` del segundo tablero haya provocado un remplazamiento
 del valor del primero.
 
-Si queremos seguir teniendo clave para todos los tableros, debemos hacer que las implementaciones de `hashMap` e `equals`sean
+Si queremos seguir teniendo clave para todos los tableros, debemos hacer que las implementaciones de `hashCode` e `equals`sean
 consistentes, pero dos tableros no deben ser tratados como claves iguales. Las implementaciones de por defecto de ' equals' y 'hashCode'
 nos lo garantizarían porque por defecto `equals`devlve `true`solo cuando las dos referencias son al mismo objeto. Si borramos los èquals` `hashCode` de `Tablero` estos problemas no aparecen, pero no podremos utilizar la función `equals`que tenìamos implementada, para 
 otras pruebas.
