@@ -188,10 +188,11 @@ los tableros (si no todos) tienen puntuaciones repetidas, y para las comparacion
 La documentación de `Comparable` no obliga, pero recomienda que `compareTo` e `equals` sean consistentes:
 
 ```
-It is strongly recommended (though not required) that natural orderings be consistent with equals. This is so because sorted sets 
-(and sorted maps) without explicit comparators behave "strangely" when they are used with elements (or keys) whose natural 
-ordering is inconsistent with equals. In particular, such a sorted set (or sorted map) violates the general contract for set 
-(or map), which is defined in terms of the equals method.
+It is strongly recommended (though not required) that natural orderings be consistent with equals. This is
+so because sorted sets  (and sorted maps) without explicit comparators behave "strangely" when they are
+used with elements (or keys) whose natural  ordering is inconsistent with equals. In particular, such a
+sorted set (or sorted map) violates the general contract for set (or map), which is defined in terms of
+the equals method.
 ```
 
 La documentación de `TreeMap` también aclara este problema.
