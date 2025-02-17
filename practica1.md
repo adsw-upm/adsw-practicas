@@ -152,13 +152,13 @@ Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.u
 
 | Método                                  | Complejidad  | Descripción |
 |-----------------------------------------|-------------|-------------|
-| `getMayorTablero()`                     | \(O(1)\)     | Devuelve el tablero con la mayor puntuación. |
-| `getPuntuacionMediana()`                | \(O(1)\)     | Devuelve la puntuación mediana de los tableros almacenados. |
-| `getNTurnosPartidaMasCorta()`           | \(O(m)\)     | Devuelve el número de turnos de la partida más corta. |
-| `getPartidasGanadasPor(String jugador)` | \(O(p/m)\)     | Devuelve el número de partidas ganadas por un jugador específico. |
-| `getMejorJugador()`                     | \(O(p^2/m)\)     | Devuelve el nombre del jugador con más partidas ganadas. |
-| `getTableroConPuntuacion(int puntuacion)` | \(O(\log n)\) | Busca un tablero con una puntuación específica utilizando búsqueda binaria. |
-| `getRepeticionesTableros()`             | \(O(1)\)     | Devuelve un mapa con la cantidad de veces que se repite cada tablero en la lista. |
+| `getMayorTablero()`                     | $O(1)$     | Devuelve el tablero con la mayor puntuación. |
+| `getPuntuacionMediana()`                | $O(1)$     | Devuelve la puntuación mediana de los tableros almacenados. |
+| `getNTurnosPartidaMasCorta()`           | $O(m)$     | Devuelve el número de turnos de la partida más corta. |
+| `getPartidasGanadasPor(String jugador)` | $O(\frac{p}{m})$     | Devuelve el número de partidas ganadas por un jugador específico. |
+| `getMejorJugador()`                     | $O(\frac{p^2}{m})$     | Devuelve el nombre del jugador con más partidas ganadas. |
+| `getTableroConPuntuacion(int puntuacion)` | $O(\log n)$ | Busca un tablero con una puntuación específica utilizando búsqueda binaria. |
+| `getRepeticionesTableros()`             | $O(1)$     | Devuelve un mapa con la cantidad de veces que se repite cada tablero en la lista. |
 
 Siendo \(n\) el número de tableros almacenados en la lista, \(p\) el número de partidas jugadas y \(m\) el número de jugadores distintos.
 
