@@ -78,7 +78,6 @@ Varios de los análisis que vamos a realizar se basan en encontrar tableros con 
 Una posible cabecera de este método podría ser la siguiente, puedes consultar las diapositivas de la asignatura para ver cómo implementar una búsqueda binaria:
 
 ```java
-
 public int buscarTablerosPorPuntuacion(int puntuacion) {
     // búsqueda binaria
     return inicio;
@@ -86,6 +85,7 @@ public int buscarTablerosPorPuntuacion(int puntuacion) {
 ```
 
 ### Pruebas recomendadas
+
 Para verificar que la implementación del método `buscarTablerosPorPuntuacion` funciona correctamente, se recomienda realizar las siguientes pruebas:
 
 1. Caso base: Lista vacía
@@ -97,7 +97,7 @@ Si la lista de tableros está vacía, el método debe devolver 0 (la posición d
 Dado un conjunto de tableros con puntuaciones ordenadas, buscar una puntuación que exista en la lista debe devolver el índice correcto. Por ejemplo, el tablero con puntuación 0 debería estar en la posición 2 de la lista.
 Lista de ejemplo:
 
-```
+```text
 ["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  // -24
  "....rk.......pppp........r..b...............K..n........q.......",  // -12
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  // 0
@@ -119,10 +119,9 @@ Si la puntuación es mayor que la máxima, debe devolver n (donde n es el tamañ
 
 Si hay varios tableros con la misma puntuación, el método debe devolver la posición del primero de ellos. Por ejemplo, si buscamos el tablero con puntuación 5, debería devolver la posición 3.
 
-
 ## Paso 4: Creación de diccionarios
 
-Este paso puede completarse una vez se haya cubierto el tema de diccionarios en la asignatura, si aún no se ha visto, se puede saltar este paso y volver a él una vez se haya cubierto el tema. 
+Este paso puede completarse una vez se haya cubierto el tema de diccionarios en la asignatura, si aún no se ha visto, se puede saltar este paso y volver a él una vez se haya cubierto el tema.
 
 Estos diccionarios nos pueden ayudar a conseguir las complejidades pedidas en los métodos de la práctica. Podemos crear los que consideremos necesarios. Uno que nos será de utilidad es uno en el que vinculemos el nombre de un jugador con las partidas que ha ganado. Para ello, podemos hacer algo similar a lo siguiente en el constructor de la clase:
 
@@ -140,12 +139,13 @@ this.jugadoresPartida = new HashMap<>();
     }
 ...
 ```
+
 Para que el diccionario funcione correctamente, deberemos añadir el método `hashCode` a la clase Pieza. Podemos usar el siguiente código para ello:
 
 ```java
 @Override
 public int hashCode() {
-    return Objects.hash(tipo, bando);
+    return Objects.hash(this.tipo, this.bando);
 }
 ```
 
@@ -171,11 +171,12 @@ Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.u
 
 Siendo \(n\) el número de tableros almacenados en la lista, \(p\) el número de partidas jugadas y \(m\) el número de jugadores distintos.
 
-### **6.1 Método `getMayorTablero`** 
+### **6.1 Método `getMayorTablero`**
 
 Este método devuelve el tablero con la mayor puntuación en la lista de tableros. Como la lista ya está ordenada, el tablero con mayor puntuación será el último de la lista.
 
-**Pruebas recomendadas:**  
+**Pruebas recomendadas:**
+
 - Una lista vacía, donde el método debe devolver `null`.
 - Una lista con un solo tablero, donde el método debe devolver ese único tablero.
 - Una lista con varios tableros ordenados, donde el método debe devolver el último tablero de la lista.
@@ -185,29 +186,32 @@ Este método devuelve el tablero con la mayor puntuación en la lista de tablero
 
 Este método devuelve la puntuación mediana de los tableros almacenados. Como la lista está ordenada, la mediana será el valor del tablero en la posición central.
 
-**Pruebas recomendadas:**  
+**Pruebas recomendadas:**
+
 - Si la lista está vacía, el método devuelve `0`.
 - Si la lista tiene un número impar de tableros, el método devuelve la puntuación del tablero en la posición central.
-- Si la lista tiene un número par de tableros, se puede definir la mediana como la puntuación del tablero más cercano a la mitad.
+- Si la lista tiene un número par de tableros, se puede definir la mediana como la puntuación media de los elementos centrales.
 - Utilizando `partidas.txt`, debe obtener una puntuación mediana 0.
 
-
-### **6.3 Método `getNTurnosPartidaMasCorta`** 
+### **6.3 Método `getNTurnosPartidaMasCorta`**
 
 Este método devuelve el número de turnos de la partida más corta registrada en la lista de partidas.
 
 **Pruebas recomendadas:**  
+
 Se debe verificar que:
+
 - Si no hay partidas, el método devuelve `0`.
 - Si hay una sola partida, el método devuelve el número de turnos de esa partida.
 - Utilizando `partidas.txt`, debe devolver 6 turnos.
 
-### **6.4 Método `getPartidasGanadasPor(String jugador)`** 
+### **6.4 Método `getPartidasGanadasPor(String jugador)`**
 
 Este método devuelve el número de partidas que ha ganado un jugador específico.
 
 **Pruebas recomendadas:**  
 Se debe comprobar que:
+
 - Si no hay partidas, el método devuelve `0`.
 - Si el jugador no ha jugado ninguna partida, el método devuelve `0`.
 - Utilizando `partidas.txt`, el jugador `TrialB` debe tener 35 victorias.
@@ -218,6 +222,7 @@ Este método devuelve el nombre del jugador con más partidas ganadas.
 
 **Pruebas recomendadas:**  
 Se debe verificar que:
+
 - Si no hay partidas, el método devuelve `null` o un valor adecuado.
 - Si hay un único jugador con victorias, el método devuelve su nombre.
 - Utilizando `partidas.txt`, el jugador con más victorias debe ser `bmv`.
@@ -228,16 +233,18 @@ Este método busca un tablero con una puntuación específica utilizando búsque
 
 **Pruebas recomendadas:**  
 Se debe comprobar que:
+
 - Si la lista está vacía, el método devuelve `null`.
 - Si hay un tablero con la puntuación buscada, el método lo devuelve correctamente.
 - Si no hay un tablero con la puntuación exacta, el método devuelve `null` o un valor adecuado.
 
-### **6.7 Método `getRepeticionesTableros`** 
+### **6.7 Método `getRepeticionesTableros`**
 
 Este método devuelve un diccionario donde las claves son tableros y los valores son el número de veces que cada tablero aparece en la lista.
 
 **Pruebas recomendadas:**  
 Se debe verificar que:
+
 - Si la lista está vacía, el método devuelve un mapa vacío.
 - Si hay tableros sin repeticiones, cada uno tiene un valor de `1`.
 - Si hay tableros repetidos, el método cuenta correctamente las repeticiones.
