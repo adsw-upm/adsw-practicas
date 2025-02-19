@@ -8,7 +8,7 @@ Esta clase se compone de unos métodos obligatorios y otros opcionales. En todos
 
 ## Paso 1: Crear la clase y su constructor
 
-Empezaremos la práctica creando la clase `AnalizadorBasico` en el paquete `es.upm.dit.adsw.ajedrez25.analizadores`. El constructor de la clase debe recibir como parámetro un objeto `LectorPartidas` del que podremos obtener la colección de partidas que queremos analizar. En este constructor se deben inicializar los atributos de la clase, y estos deben incluir una lista de partidas y otra lista de tableros que contenga todos los turnos vistos en la colección de partidas. Puede utilizar el siguiente método main para probar el funcionamiento de la clase (hay que añadir los imports necesarios y crear el logger):
+Empezaremos la práctica creando la clase `AnalizadorBasico` en el paquete `es.upm.dit.adsw.ajedrez25.analizadores`. El constructor de la clase debe recibir como parámetro una lista de partidas que podemos obtener con `LectorPartidas`. En este constructor se deben inicializar los atributos de la clase, y estos deben incluir una lista de partidas y otra lista de tableros que contenga todos los turnos vistos en la colección de partidas. Puede utilizar el siguiente método main para probar el funcionamiento de la clase (hay que añadir los imports necesarios y crear el logger):
 
 ```java
 public static void main(String[] args) throws Exception {
