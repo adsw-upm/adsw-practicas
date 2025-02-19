@@ -62,7 +62,7 @@ El criterio de ordenación debe basarse en la puntuación general del tablero (d
  "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
 ```
 
-## Paso 2: Búsqueda de tableros por puntuación
+## Paso 3: Búsqueda de tableros por puntuación
 
 Varios de los análisis que vamos a realizar se basan en encontrar tableros con unas puntuaciones determinadas. Para facilitar esto, se propone implementar un método `buscarTablerosPorPuntuacion` que reciba como parámetro una puntuación y devuelva el índice del primer tablero con esa puntuación en la lista de tableros. En caso de no encontrar ningún tablero con esa puntuación, el método debe devolver la posición en la que debería insertarse el tablero para mantener el orden correcto de la lista. Como se ha visto en la asignatura, esta posición se puede obtener con una búsqueda binaria.
 
@@ -111,7 +111,7 @@ Si la puntuación es mayor que la máxima, debe devolver n (donde n es el tamañ
 Si hay varios tableros con la misma puntuación, el método debe devolver la posición del primero de ellos. Por ejemplo, si buscamos el tablero con puntuación 5, debería devolver la posición 3.
 
 
-## Paso 3: Creación de diccionarios
+## Paso 4: Creación de diccionarios
 
 Este paso puede completarse una vez se haya cubierto el tema de diccionarios en la asignatura, si aún no se ha visto, se puede saltar este paso y volver a él una vez se haya cubierto el tema. 
 
@@ -140,13 +140,13 @@ public int hashCode() {
 }
 ```
 
-## Paso 4: Creación de pruebas
+## Paso 5: Creación de pruebas
 
 Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.upm.dit.adsw.ajedrez25.analizadores` que contenga pruebas para los métodos implementados en los pasos anteriores y en los siguientes. De momento, solo se deben implementar pruebas para los métodos `ordenarTableros` y `buscarTablerosPorPuntuacion`.
 
 ---
 
-## Paso 5: Métodos obligatorios
+## Paso 6: Métodos obligatorios
 
 ## **Resumen de métodos obligatorios y sus complejidades mínimas**
 
@@ -162,7 +162,7 @@ Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.u
 
 Siendo \(n\) el número de tableros almacenados en la lista, \(p\) el número de partidas jugadas y \(m\) el número de jugadores distintos.
 
-### **5.1 Método `getMayorTablero`** 
+### **6.1 Método `getMayorTablero`** 
 
 Este método devuelve el tablero con la mayor puntuación en la lista de tableros. Como la lista ya está ordenada, el tablero con mayor puntuación será el último de la lista.
 
@@ -172,7 +172,7 @@ Este método devuelve el tablero con la mayor puntuación en la lista de tablero
 - Una lista con varios tableros ordenados, donde el método debe devolver el último tablero de la lista.
 - Utilizando `partidas.txt`, debe obtener un tablero con puntuación 56.
 
-### **5.2 Método `getPuntuacionMediana`**
+### **6.2 Método `getPuntuacionMediana`**
 
 Este método devuelve la puntuación mediana de los tableros almacenados. Como la lista está ordenada, la mediana será el valor del tablero en la posición central.
 
@@ -183,7 +183,7 @@ Este método devuelve la puntuación mediana de los tableros almacenados. Como l
 - Utilizando `partidas.txt`, debe obtener una puntuación mediana 0.
 
 
-### **5.3 Método `getNTurnosPartidaMasCorta`** 
+### **6.3 Método `getNTurnosPartidaMasCorta`** 
 
 Este método devuelve el número de turnos de la partida más corta registrada en la lista de partidas.
 
@@ -193,7 +193,7 @@ Se debe verificar que:
 - Si hay una sola partida, el método devuelve el número de turnos de esa partida.
 - Utilizando `partidas.txt`, debe devolver 6 turnos.
 
-### **5.4 Método `getPartidasGanadasPor(String jugador)`** 
+### **6.4 Método `getPartidasGanadasPor(String jugador)`** 
 
 Este método devuelve el número de partidas que ha ganado un jugador específico.
 
@@ -203,7 +203,7 @@ Se debe comprobar que:
 - Si el jugador no ha jugado ninguna partida, el método devuelve `0`.
 - Utilizando `partidas.txt`, el jugador `TrialB` debe tener 35 victorias.
 
-### **5.5 Método `getMejorJugador()`**
+### **6.5 Método `getMejorJugador()`**
 
 Este método devuelve el nombre del jugador con más partidas ganadas.
 
@@ -213,7 +213,7 @@ Se debe verificar que:
 - Si hay un único jugador con victorias, el método devuelve su nombre.
 - Utilizando `partidas.txt`, el jugador con más victorias debe ser `bmv`.
 
-### **5.6 Método `getTableroConPuntuacion(int puntuacion)`**
+### **6.6 Método `getTableroConPuntuacion(int puntuacion)`**
 
 Este método busca un tablero con una puntuación específica utilizando búsqueda binaria.
 
@@ -223,7 +223,7 @@ Se debe comprobar que:
 - Si hay un tablero con la puntuación buscada, el método lo devuelve correctamente.
 - Si no hay un tablero con la puntuación exacta, el método devuelve `null` o un valor adecuado.
 
-### **5.7 Método `getRepeticionesTableros`** 
+### **6.7 Método `getRepeticionesTableros`** 
 
 Este método devuelve un diccionario donde las claves son tableros y los valores son el número de veces que cada tablero aparece en la lista.
 
