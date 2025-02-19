@@ -32,31 +32,40 @@ El criterio de ordenación debe basarse en la puntuación general del tablero (d
 ### Pruebas recomendadas
 
 - Comprobar que la siguiente lista de tableros se ordena correctamente:
-    - Lista original
-```
+
+Lista original
+
+```text
 ["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  # -24
  "....rk.......pppp........r..b...............K..n........q.......",  # -12
  "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  # +18
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
  "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
 ```
-    - Lista ordenada
-```
+
+Lista ordenada
+
+```text
 ["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  # -24
  "....rk.......pppp........r..b...............K..n........q.......",  # -12
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
  "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
  "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K."]  # +18
 ```
+
 - Comprobar que al ordenar se mantiene el orden de los tableros con la misma puntuación. Es decir, si dos tableros tienen la misma puntuación, el orden en el que aparecen en la lista no debe cambiar.
-    - Lista original
-```
+
+Lista original
+
+```text
 ["rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
  "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"]  # 0
 ```
-    - Lista ordenada
-```
+
+Lista ordenada
+
+```text
 ["rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
  "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
  "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
