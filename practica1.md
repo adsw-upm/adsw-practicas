@@ -150,7 +150,7 @@ Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.u
 
 ## **Resumen de métodos obligatorios y sus complejidades mínimas**
 
-| Método                                  | Complejidad  | Descripción |
+| Método                                  | Complejidad (caso medio)  | Descripción |
 |-----------------------------------------|-------------|-------------|
 | `getMayorTablero()`                     | $O(1)$     | Devuelve el tablero con la mayor puntuación. |
 | `getPuntuacionMediana()`                | $O(1)$     | Devuelve la puntuación mediana de los tableros almacenados. |
