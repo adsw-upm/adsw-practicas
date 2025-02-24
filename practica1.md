@@ -37,20 +37,20 @@ Lista original
 
 ```text
 ["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  # -24
- "....rk.......pppp........r..b...............K..n........q.......",  # -12
- "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  # +18
+ "....rk.......pppp........r..b...............K..n........q.......",  # -29
+ "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  # +2
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
- "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
+ ".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
 ```
 
 Lista ordenada
 
 ```text
-["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  # -24
- "....rk.......pppp........r..b...............K..n........q.......",  # -12
+["....rk.......pppp........r..b...............K..n........q.......",  # -29
+ "....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  # -24
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
- "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
- "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K."]  # +18
+ "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  # +2
+ ".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
 ```
 
 - Comprobar que al ordenar se mantiene el orden de los tableros con la misma puntuación. Es decir, si dos tableros tienen la misma puntuación, el orden en el que aparecen en la lista no debe cambiar.
@@ -58,8 +58,8 @@ Lista ordenada
 Lista original
 
 ```text
-["rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
- "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
+[".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
+ ".nbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR"]  # 0
 ```
 
@@ -67,8 +67,8 @@ Lista ordenada
 
 ```text
 ["rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  # 0
- "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
- "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
+ ".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  # +5
+ ".nbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R"]  # +5
 ```
 
 ## Paso 3: Búsqueda de tableros por puntuación
@@ -99,11 +99,11 @@ Lista de ejemplo:
 
 ```text
 ["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  // -24
- "....rk.......pppp........r..b...............K..n........q.......",  // -12
+ "....rk.......pppp........r..b...............K..n........q.......",  // -29
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  // 0
- "rnbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  // +5
- "rnbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R",  // +5
- "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K."]  // +18
+ "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  // +2
+ ".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  // +5
+ ".nbqk.nr.pppppbpp.....p..................PN..N..P.PPPPPPR.BQKB.R"]  // +5
 ```
 
 3. Buscar una puntuación inexistente (debe devolver la posición de inserción)
