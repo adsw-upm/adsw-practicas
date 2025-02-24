@@ -98,8 +98,9 @@ Dado un conjunto de tableros con puntuaciones ordenadas, buscar una puntuación 
 Lista de ejemplo:
 
 ```text
-["....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  // -24
+[
  "....rk.......pppp........r..b...............K..n........q.......",  // -29
+ "....r...p....k...p.....p.......r..P.p.....Pp....P.....bK.....q..",  // -24
  "rnbqkbnrpppppppp................................PPPPPPPPRNBQKBNR",  // 0
  "r.b.k..r........p.N..bpp...P.p......pq..P.N.R..P.PP..PP.R..Q..K.",  // +2
  ".nbqk.nrppppppbp......p..................PN..N..P.PPPPPPR.BQKB.R",  // +5
