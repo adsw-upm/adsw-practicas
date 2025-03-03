@@ -152,7 +152,7 @@ public int hashCode() {
 
 ## Paso 5: Creación de pruebas
 
-Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.upm.dit.adsw.ajedrez25.analizadores` que contenga pruebas para los métodos implementados en los pasos anteriores y en los siguientes. De momento, solo se deben implementar pruebas para los métodos `ordenarTableros` y `buscarTablerosPorPuntuacion`.
+Deberemos crear una clase de pruebas, en la carpeta de test, en el paquete `es.upm.dit.adsw.ajedrez25.analizadores` (hay que crear también el paquete analizadores) que contenga pruebas para los métodos implementados en los pasos anteriores y en los siguientes. De momento, solo se deben implementar pruebas para los métodos `ordenarTableros` y `buscarTablerosPorPuntuacion`.
 
 ---
 
