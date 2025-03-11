@@ -109,7 +109,7 @@ Lista de ejemplo:
 
 3. Buscar una puntuación inexistente (debe devolver la posición de inserción)
 
-Si la puntuación no está en la lista, el método debe devolver el índice donde debería insertarse para mantener el orden. Por ejemplo, si buscamos el tablero con puntuación 7 (en la lista anterior), debería devolver la posición 5.
+Si la puntuación no está en la lista, el método debe devolver el índice donde debería insertarse para mantener el orden. Por ejemplo, si buscamos el tablero con puntuación 3 (en la lista anterior), debería devolver la posición 4.
 
 4. Buscar el menor y mayor valor de la lista
 
@@ -118,7 +118,7 @@ Si la puntuación es mayor que la máxima, debe devolver n (donde n es el tamañ
 
 5. Buscar puntuaciones duplicadas
 
-Si hay varios tableros con la misma puntuación, el método debe devolver la posición del primero de ellos. Por ejemplo, si buscamos el tablero con puntuación 5, debería devolver la posición 3.
+Si hay varios tableros con la misma puntuación, el método debe devolver la posición del primero de ellos. Por ejemplo, si buscamos el tablero con puntuación 5, debería devolver la posición 4.
 
 ## Paso 4: Creación de diccionarios
 
