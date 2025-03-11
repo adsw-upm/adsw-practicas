@@ -215,7 +215,7 @@ Se debe comprobar que:
 
 - Si no hay partidas, el método devuelve `0`.
 - Si el jugador no ha jugado ninguna partida, el método devuelve `0`.
-- Utilizando `partidas.txt`, el jugador `TrialB` debe tener 35 victorias.
+- Utilizando `partidas.txt`, el jugador `TrialB` debe tener 57 victorias.
 
 ### **6.5 Método `getMejorJugador()`**
 
@@ -226,7 +226,7 @@ Se debe verificar que:
 
 - Si no hay partidas, el método devuelve `null` o un valor adecuado.
 - Si hay un único jugador con victorias, el método devuelve su nombre.
-- Utilizando `partidas.txt`, el jugador con más victorias debe ser `bmv`.
+- Utilizando `partidas.txt`, el jugador con más victorias debe ser `Mephostophilis`.
 
 ### **6.6 Método `getTableroConPuntuacion(int puntuacion)`**
 
