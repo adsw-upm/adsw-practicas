@@ -16,7 +16,7 @@ public static void main(String[] args) throws Exception {
     long t = System.currentTimeMillis();
     AnalizadorBasico basico = new AnalizadorBasico(lector.getPartidas());
     LOGGER.info("Tiempo de análisis: " + (System.currentTimeMillis() - t) + " ms");
-    LOGGER.info("Número de turnos de la partida más corta: " + basico.getNumTurnosPartidaMasCorta());
+    LOGGER.info("Número de turnos de la partida más corta: " + basico.getNTurnosPartidaMasCorta());
     LOGGER.info("Puntuación mediana: " + basico.getPuntuacionMediana());
     LOGGER.info("Partidas ganadas por mahdii: " + basico.getPartidasGanadasPor("mahdii"));
     LOGGER.info("Mejor jugador: " + basico.getMejorJugador() + " con " + basico.getPartidasGanadasPor(basico.getMejorJugador()) + " victorias");
