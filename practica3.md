@@ -114,7 +114,7 @@ Las colecciones de tareas y resultados se compartirán entre las hebras, por lo 
 
 ## Paso 3: Implementación de la clase HebraWorker
 
-La clase `HebraWorker` es la encargada de procesar las tareas. Esta clase debe extender `Threads`, que nos permitirá ejecutar la hebra. La hebra debe estar en un bucle infinito, que se encargará de procesar las tareas de la cola de tareas. Para ello, debemos implementar el método `run()`, que se encargará de procesar las tareas. En este método, debemos extraer una tarea de la cola de tareas y procesarla. Este método debe recorrer el grafo a partir del nodo que se ha pasado como parámetro y añadir los nodos adyacentes a la cola de tareas. Para poder hacer esto, la clase `HebraWorker` debe tener acceso a la clase `PoolHebras` (deberíamos pasar la referencia en el constructor), que contiene la cola de tareas y la lista de resultados. El método run() debe seguir el siguiente esquema:
+La clase `HebraWorker` es la encargada de procesar las tareas. Esta clase debe extender `Thread`, que nos permitirá ejecutar la hebra. La hebra debe estar en un bucle infinito, que se encargará de procesar las tareas de la cola de tareas. Para ello, debemos implementar el método `run()`, que se encargará de procesar las tareas. En este método, debemos extraer una tarea de la cola de tareas y procesarla. Este método debe recorrer el grafo a partir del nodo que se ha pasado como parámetro y añadir los nodos adyacentes a la cola de tareas. Para poder hacer esto, la clase `HebraWorker` debe tener acceso a la clase `PoolHebras` (deberíamos pasar la referencia en el constructor), que contiene la cola de tareas y la lista de resultados. El método run() debe seguir el siguiente esquema:
 
 ```java
 run() {
