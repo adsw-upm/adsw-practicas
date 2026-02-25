@@ -88,7 +88,7 @@ s → 1
 El método debe:
 
 1. Normalizar las letras recibidas.
-2. Construir un mapa de frecuencias para dichas letras.
+2. Construir un mapa de frecuencias para dichas letras. Puede usarse el método `vectorizarPalabra` que definimos en el paso anterior.
 3. Recorrer las palabras del diccionario.
 4. Para cada palabra:
    - Comprobar que todas sus letras existen en el conjunto inicial.
