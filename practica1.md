@@ -73,7 +73,7 @@ s → 1
 
 - Leer el fichero `data/es.txt`.
 - Normalizar cada palabra (minúsculas, sin tildes, sin espacios).
-- Construir el mapa de frecuencias de cada palabra.
+- Construir el mapa de frecuencias de cada palabra. Se recomienda hacer un método `vectorizarPalabra` al que le pasamos un `String` y nos devuelve el mapa de frecuencias correspondiente.
 - Insertar la palabra y su mapa en `mapaPalabras`.
 
 > [!TIP]
