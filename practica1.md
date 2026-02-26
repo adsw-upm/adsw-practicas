@@ -71,9 +71,9 @@ s → 1
 
 ### Qué debe hacer el constructor
 
-- Leer el fichero `data/es.txt`.
+- Leer el fichero `ADSW26_CifrasyLetras/data/es.txt`.
 - Normalizar cada palabra (minúsculas, sin tildes, sin espacios).
-- Construir el mapa de frecuencias de cada palabra. Se recomienda hacer un método `vectorizarPalabra` al que le pasamos un `String` y nos devuelve el mapa de frecuencias correspondiente.
+- Construir el mapa de frecuencias de cada palabra.
 - Insertar la palabra y su mapa en `mapaPalabras`.
 
 > [!TIP]
@@ -88,7 +88,7 @@ s → 1
 El método debe:
 
 1. Normalizar las letras recibidas.
-2. Construir un mapa de frecuencias para dichas letras. Puede usarse el método `vectorizarPalabra` que definimos en el paso anterior.
+2. Construir un mapa de frecuencias para dichas letras.
 3. Recorrer las palabras del diccionario.
 4. Para cada palabra:
    - Comprobar que todas sus letras existen en el conjunto inicial.
@@ -106,7 +106,7 @@ En esta versión básica, la primera palabra válida encontrada no tiene por qu�
 La siguiente animación muestra un ejemplo de cómo el algoritmo debería realizar la comparación de las frecuencias de
 las palabras del listado de palabras válidas, con las frecuencias de las letras proporcionadas al jugador.
 
-![Visualización de la comparación de fruencias](data/P1ValidacionDiccionario.gif)
+![Visualización de la comparación de frecuencias](data/P1ValidacionDiccionario.gif)
 
 ▶️ **[Abrir animación completa (MP4, con controles de reproducción)](https://drive.upm.es/s/GLfeyb4rnTx4ZNp)**
 
@@ -117,10 +117,32 @@ las palabras del listado de palabras válidas, con las frecuencias de las letras
 ## Parte 3: Priorizar palabras más largas
 
 Si recorriéramos el listado de palabras ordenado de mayor a menor longitud, la primera palabra válida encontrada sería
-necesariamente la mejor posible (es decir, la más larga que puede formarse con las letras dadas).
+necesariamente la mejor posible (es decir, la más larga que puede formarse con las letras dadas). Sin embargo, `HashMap` no mantiene ningún orden interno, por lo que no podemos controlar en qué orden se recorren las
+palabras, ni tampoco guardarlas ordenadas. Para solucionar este problema, se propone utilizar una lista adicional que tenga todas las claves del `HashMap` ordenadas por longitud descendente. Para ello:
 
-Sin embargo, `HashMap` no mantiene ningún orden interno, por lo que no podemos controlar en qué orden se recorren las
-palabras, ni tampoco guardarlas ordenadas.
+1. Crear una lista de String como atributo de la clase.
+2. En el constructor, después de rellenar el `HashMap`, rellenar la lista con las claves del mapa.
+3. Ordenar la lista por longitud descendente. Para esto no podremos utilizar `Collections.sort` directamente, ya que el orden sería lexicográfico (alfabético). Utilizaremos uno de los algoritmos de ordenación vistos en clase y en lugar de usar el `compareTo` de `String`, definiremos un método que reciba dos `String` y los compare por longitud.
+```java
+/**
+ * Compara dos String por su longitud
+ * Si s1 es más largo que s2, devuelve un número positivo
+ * Si s1 es más corto que s2, devuelve un número negativo
+ * Si s1 y s2 tienen la misma longitud, devuelve 0
+ * @param s1 primer String a comparar
+ * @param s2 segundo String a comparar
+ * @return resultado de la comparación por longitud
+ */
+private static int compararPorLongitud(String s1, String s2) {
+    // a rellenar
+}
+```
+4. En el método `obtenerPalabra`, recorrer la lista ordenada en lugar de recorrer el `HashMap` directamente. De este modo, la primera palabra válida encontrada será la más larga posible.
+
+
+## Parte 4 (Opcional): Usar un TreeMap con un Comparator personalizado en vez de la lista de palabras
+
+Como mejora adicional se propone utilizar una colección que mantenga las palabras ordenadas por longitud de forma automática, sin necesidad de una lista adicional. Para ello, tenemos vairas opciones:
 
 > [!IMPORTANT]
 > ¿Qué otras estructuras mantienen un orden?
@@ -143,7 +165,7 @@ De este modo:
 
 ---
 
-# Parte 4 (Opcional): Soporte de comodín
+# Parte 5 (Opcional): Soporte de comodín
 
 De forma opcional, se propone ampliar la práctica para permitir el uso de un comodín.
 
