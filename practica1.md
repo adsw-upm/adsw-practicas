@@ -72,8 +72,8 @@ s → 1
 ### Qué debe hacer el constructor
 
 - Leer el fichero `ADSW26_CifrasyLetras/data/es.txt`.
-- Normalizar cada palabra (minúsculas, sin tildes, sin espacios).
-- Construir el mapa de frecuencias de cada palabra.
+- Normalizar cada palabra (minúsculas, sin tildes, sin espacios). 
+- Construir el mapa de frecuencias de cada palabra.  Se recomienda hacer un método `vectorizarPalabra` al que le pasamos un `String` y nos devuelve el mapa de frecuencias correspondiente.
 - Insertar la palabra y su mapa en `mapaPalabras`.
 
 > [!TIP]
@@ -88,7 +88,7 @@ s → 1
 El método debe:
 
 1. Normalizar las letras recibidas.
-2. Construir un mapa de frecuencias para dichas letras.
+2. Construir un mapa de frecuencias para dichas letras. Puede usarse el método `vectorizarPalabra` que definimos en el paso anterior.
 3. Recorrer las palabras del diccionario.
 4. Para cada palabra:
    - Comprobar que todas sus letras existen en el conjunto inicial.
