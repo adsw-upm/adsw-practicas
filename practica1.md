@@ -126,8 +126,8 @@ palabras, ni tampoco guardarlas ordenadas. Para solucionar este problema, se pro
 ```java
 /**
  * Compara dos String por su longitud
- * Si s1 es más largo que s2, devuelve un número positivo
- * Si s1 es más corto que s2, devuelve un número negativo
+ * Si s1 es más largo que s2, devuelve un número negativo
+ * Si s1 es más corto que s2, devuelve un número positivo
  * Si s1 y s2 tienen la misma longitud, devuelve 0
  * @param s1 primer String a comparar
  * @param s2 segundo String a comparar
