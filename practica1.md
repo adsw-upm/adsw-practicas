@@ -120,7 +120,7 @@ Si recorriéramos el listado de palabras ordenado de mayor a menor longitud, la 
 necesariamente la mejor posible (es decir, la más larga que puede formarse con las letras dadas). Sin embargo, `HashMap` no mantiene ningún orden interno, por lo que no podemos controlar en qué orden se recorren las
 palabras, ni tampoco guardarlas ordenadas. Para solucionar este problema, se propone utilizar una lista adicional que tenga todas las claves del `HashMap` ordenadas por longitud descendente. Para ello:
 
-1. Crear una lista de String como atributo de la clase.
+1. Crear una lista de String llamada `palabrasOrdenadas` como atributo de la clase.
 2. En el constructor, después de rellenar el `HashMap`, rellenar la lista con las claves del mapa.
 3. Ordenar la lista por longitud descendente. Para esto no podremos utilizar `Collections.sort` directamente, ya que el orden sería lexicográfico (alfabético). Utilizaremos uno de los algoritmos de ordenación vistos en clase y en lugar de usar el `compareTo` de `String`, definiremos un método que reciba dos `String` y los compare por longitud.
 ```java
