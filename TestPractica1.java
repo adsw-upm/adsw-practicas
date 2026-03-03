@@ -15,7 +15,7 @@ import es.upm.dit.adsw.cifrasyletras.letras.LetrasPractica;
 
 /**
  * Suite de pruebas unitarias para la clase LetrasPractica.
- * El método vectorizarLetras, las colecciones palabrasValidas y palabrasOrdenadas deben ser public.
+ * El método vectorizarLetras, las colecciones mapaPalabras y palabrasOrdenadas deben ser public.
  */
 class TestPractica1 {
 
@@ -30,8 +30,8 @@ class TestPractica1 {
 	@Test
 	@DisplayName("Validación de carga de diccionario")
 	void testMapaPalabras() {
-		assertNotNull(letras.palabrasValidas, "Error: El mapa 'palabrasValidas' no ha sido instanciado.");
-		assertEquals(636598, letras.palabrasValidas.size(), 
+		assertNotNull(letras.mapaPalabras, "Error: El mapa 'mapaPalabras' no ha sido instanciado.");
+		assertEquals(636598, letras.mapaPalabras.size(), 
 			"Error: El número de palabras cargadas no coincide con el total esperado del diccionario.");
 	}
 	
@@ -44,8 +44,8 @@ class TestPractica1 {
 		frecProgramacion.put('i', 1); frecProgramacion.put('m', 1); frecProgramacion.put('n', 1);
 		frecProgramacion.put('o', 2); frecProgramacion.put('a', 2); frecProgramacion.put('r', 2);
 		
-		assertNotNull(letras.palabrasValidas.get("programacion"), "Error: 'programacion' no se encuentra en el mapa.");
-		assertEquals(frecProgramacion, letras.palabrasValidas.get("programacion"), 
+		assertNotNull(letras.mapaPalabras.get("programacion"), "Error: 'programacion' no se encuentra en el mapa.");
+		assertEquals(frecProgramacion, letras.mapaPalabras.get("programacion"), 
 			"Error: El mapa de frecuencias de 'programacion' es incorrecto.");
 		
 		// Verificación para "algoritmo"
@@ -54,12 +54,12 @@ class TestPractica1 {
 		frecAlgoritmo.put('g', 1); frecAlgoritmo.put('i', 1); frecAlgoritmo.put('l', 1);
 		frecAlgoritmo.put('m', 1); frecAlgoritmo.put('o', 2);
 		
-		assertNotNull(letras.palabrasValidas.get("algoritmo"), "Error: 'algoritmo' no se encuentra en el mapa.");
-		assertEquals(frecAlgoritmo, letras.palabrasValidas.get("algoritmo"), 
+		assertNotNull(letras.mapaPalabras.get("algoritmo"), "Error: 'algoritmo' no se encuentra en el mapa.");
+		assertEquals(frecAlgoritmo, letras.mapaPalabras.get("algoritmo"), 
 			"Error: El mapa de frecuencias de 'algoritmo' es incorrecto.");
 		
 		// Verificación de inexistencia
-		assertNull(letras.palabrasValidas.get("algoristmo"), "Error: 'algoristmo' (inexistente) ha sido encontrado en el mapa.");
+		assertNull(letras.mapaPalabras.get("algoristmo"), "Error: 'algoristmo' (inexistente) ha sido encontrado en el mapa.");
 	}
 	
 
@@ -113,7 +113,7 @@ class TestPractica1 {
 	@DisplayName("Validación de utilidad vectorizarLetras")
 	void testVectorizarPalabra() {
 		try {
-			assertNull(letras.vectorizarLetras(null), "Error: El vector de un String nulo debería ser nulo o lanzar excepción controlada.");
+			assertNull(letras.vectorizarPalabra(null), "Error: El vector de un String nulo debería ser nulo o lanzar excepción controlada.");
 		} catch (Exception e) {
 			// Excepción capturada correctamente según diseño
 		}
@@ -123,10 +123,10 @@ class TestPractica1 {
 		frecAlgoritmo.put('g', 1); frecAlgoritmo.put('i', 1); frecAlgoritmo.put('l', 1);
 		frecAlgoritmo.put('m', 1); frecAlgoritmo.put('o', 2);
 		
-		assertEquals(frecAlgoritmo, letras.vectorizarLetras("algoritmo"), "Error: Frecuencias generadas incorrectas para 'algoritmo'.");
+		assertEquals(frecAlgoritmo, letras.vectorizarPalabra("algoritmo"), "Error: Frecuencias generadas incorrectas para 'algoritmo'.");
 		
 		frecAlgoritmo.put('x', 3);
-		assertEquals(frecAlgoritmo, letras.vectorizarLetras("algoritmoxxx"), "Error: Frecuencias generadas incorrectas con caracteres repetidos.");
+		assertEquals(frecAlgoritmo, letras.vectorizarPalabra("algoritmoxxx"), "Error: Frecuencias generadas incorrectas con caracteres repetidos.");
 	}
 	
 
