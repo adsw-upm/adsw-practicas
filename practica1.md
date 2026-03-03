@@ -35,32 +35,31 @@ en un orden adecuado.
 La idea general es la siguiente:
 
 1. Preprocesar el listado de palabras válidas:
-   - Para cada palabra válida, calcular la frecuencia de aparición de cada letra.
+   - Para cada palabra válida, calcular la frecuencia de aparición de cada letra (número de veces que aparece).
    - Guardar esa información en una estructura que permita consultarla rápidamente.
 
 2. Dada una cadena de letras proporcionada al jugador:
-   -  Calcular también la frecuencia de cada letra.
+   - Calcular también la frecuencia de cada letra.
    - Recorrer el listado de palabras válidas y comprobar si alguna palabra puede formarse con esas letras.
 
-Una palabra será válida si, para cada carácter que utiliza, la frecuencia en la palabra es menor o igual que la frecuencia disponible en el conjunto inicial.
+Una palabra será construible si, para cada carácter que utiliza, la frecuencia de ese carácter en la palabra válida es menor o igual que la frecuencia de ese carácter en la cadena proporcionada al jugador.
 
 ---
 
 ## Parte 1: Implementación básica con `HashMap`
 
-En una primera versión, se propone utilizar:
+En una primera versión, se propone utilizar el atributo:
 
 `HashMap<String, Map<Character, Integer>> mapaPalabras`
 
 donde:
 
 - La clave es la palabra válida.
-- El valor es un mapa que contiene el número de veces que aparece cada carácter en dicha palabra.
+- El valor es un diccionario asociado que contiene el número de veces que aparece cada carácter en dicha palabra.
 
-Ejemplo conceptual:
-
-Palabra: contratos  
-Diccionario asociado:  
+Ejemplo conceptual:  
+Si la `Clave` (de `mapaPalabras`) es "contratos"  
+El diccionario (`Valor` asociado a la `Clave` "contratos") contiene:  
 c → 1  
 o → 2  
 n → 1  
@@ -79,7 +78,7 @@ s → 1
 > [!TIP]
 > Recuerda que para leer el fichero podemos utilizar la clase `BufferedReader`, leyendo cada línea igual que se hace en
 > el constructor proporcionado en el Laboratorio 1.
-> Para normalizar las palabras se puede reutilizar el método de la clase `ValidadorLetras`.
+> Para normalizar las palabras se puede reutilizar el método limpiarPalabra de la clase `ValidadorLetras`.
 
 ---
 
@@ -89,10 +88,10 @@ El método debe:
 
 1. Normalizar las letras recibidas.
 2. Construir un mapa de frecuencias para dichas letras. Puede usarse el método `vectorizarPalabra` que definimos en el paso anterior.
-3. Recorrer las palabras del diccionario.
+3. Recorrer las palabras del diccionario de palabras posible (`mapaPalabras`).
 4. Para cada palabra:
-   - Comprobar que todas sus letras existen en el conjunto inicial.
-   - Comprobar que la frecuencia de cada letra no supera la disponible.
+   - Comprobar que todas sus letras existen en la palabra pasada como argumento al método.
+   - Comprobar que la frecuencia de cada letra no supera la disponible en la palabra pasada como argumento al método.
 5. Devolver la primera palabra que cumpla las condiciones.
 
 Si no existe ninguna palabra posible, devolver `null`.
@@ -122,7 +121,7 @@ palabras, ni tampoco guardarlas ordenadas. Para solucionar este problema, se pro
 
 1. Crear una lista de String llamada `palabrasOrdenadas` como atributo de la clase.
 2. En el constructor, después de rellenar el `HashMap`, rellenar la lista con las claves del mapa.
-3. Ordenar la lista por longitud descendente. Para esto no podremos utilizar `Collections.sort` directamente, ya que el orden sería lexicográfico (alfabético). Utilizaremos uno de los algoritmos de ordenación vistos en clase y en lugar de usar el `compareTo` de `String`, definiremos un método que reciba dos `String` y los compare por longitud.
+3. En el constructor, ordenar la lista por longitud descendente. Para esto no podremos utilizar `Collections.sort` directamente, ya que el orden sería lexicográfico (alfabético). Utilizaremos uno de los algoritmos de ordenación vistos en clase y en lugar de usar el `compareTo` de `String`, definiremos un método que reciba dos `String` y los compare por longitud.
 ```java
 /**
  * Compara dos String por su longitud
@@ -139,10 +138,14 @@ private static int compararPorLongitud(String s1, String s2) {
 ```
 4. En el método `obtenerPalabra`, recorrer la lista ordenada en lugar de recorrer el `HashMap` directamente. De este modo, la primera palabra válida encontrada será la más larga posible.
 
+> [!NOTE]
+> En función de qué algoritmo elija, la ordenación tardará más o menos tiempo, tal y como se vio en clase. Además, si 
+> utiliza un método de ordenación recursivo, podría encontrarse con un error de desbordamiento de pila (stack overflow). 
+> Si le ocurre, investigue por qué pasa esto y cómo podría solucionar el problema.
 
 ## Parte 4 (Opcional): Usar un TreeMap con un Comparator personalizado en vez de la lista de palabras
 
-Como mejora adicional se propone utilizar una colección que mantenga las palabras ordenadas por longitud de forma automática, sin necesidad de una lista adicional. Para ello, tenemos vairas opciones:
+Como mejora adicional se propone utilizar una colección que mantenga las palabras ordenadas por longitud de forma automática, sin necesidad de una lista adicional. Para ello, tenemos varias opciones:
 
 > [!IMPORTANT]
 > ¿Qué otras estructuras mantienen un orden?
@@ -208,7 +211,7 @@ Es decir:
    - Comparar con las letras disponibles.
    - Si para alguna letra faltan ocurrencias:
       - Restar esa diferencia al número de comodines.
-      - Si el número de comodines se vuelve negativo, la palabra no es válida.
+      - Si el número de comodines se vuelve negativo, la palabra no es válida y se resetea el número de comodines disponibles.
 
 ---
 
@@ -229,3 +232,9 @@ Letras dadas:
   (El comodín ya forma parte del conjunto de letras disponibles.)
 - La estructura general del algoritmo no cambia; únicamente se ajusta la comprobación de validez.
 - La palabra devuelta debe seguir siendo la más larga posible.
+
+> [!WARNING]
+> Si prueba este código modificando el método main de `JuegoHumano`, en lugar de usando la clase de pruebas que se le 
+> proporciona, podría encontrarse con que se le indica que una palabra válida no lo es. Esto se debe a que en 
+> `ValidadorLetras` el método esValida no entiende de comodines. No se preocupe, es normal. Si tiene tiempo libre, 
+> modifique el método `esValida` para que los tenga en cuenta.
