@@ -152,7 +152,7 @@ Este método implementa un **recorrido del grafo de estados**. Cada nodo del gra
 public void buscarSolucion(List<Integer> numeros, int objetivo)
 ```
 
-Se proporciona el método `generarNodosIniciales`. Este métod recibe una lista de expresiones parciales, cada una con un número de la lista original, y devuelve una lista de nodos iniciales. Cada nodo inicial tiene como expresión actual uno de los números y como disponibles todos los números.
+Se proporciona el método `generarNodosIniciales`. Este método recibe una lista de expresiones parciales, cada una con un número de la lista original, y devuelve una lista de nodos iniciales. Cada nodo inicial tiene como expresión actual uno de los números y como disponibles todos los números.
 ```java
 /**
  * Genera nodos iniciales a partir de la lista de expresiones parciales iniciales (números sueltos).
