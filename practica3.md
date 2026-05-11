@@ -60,7 +60,7 @@ sequenceDiagram
     Note over MJ: exacta → notify() temprano
     Note over JC: se despierta antes de TIEMPO_PRUEBA
     MJ->>JC: [solucionJ1, solucionJ2]
-    Note over MJ: terminado=true, notifyAll()
+    Note over MJ: terminado=true
     S2-->>S2: isTerminado() → sale del bucle
     JC->>JC: calcular puntos y acumular
 ```
@@ -143,7 +143,7 @@ Implementación esperada de `publicarPruebaCifras` (y análogamente `publicarPru
 2. Limpia las soluciones del turno anterior (`solucionCifrasJ1 = null`, etc.) y pone `terminado = false`.
 3. Llama a `notifyAll()` para despertar a los solvers que estén bloqueados en `getObjetivo()` o `getLetras()`.
 4. Llama a `wait(TIEMPO_PRUEBA)` para esperar como máximo ese tiempo.
-5. Al despertar (ya sea por `notify()` temprano o por expiración del tiempo), pone `terminado = true` y llama a `notifyAll()` para que los solvers que estén en `getObjetivo()` de la siguiente ronda no queden bloqueados indefinidamente.
+5. Al despertar (ya sea por `notify()` temprano o por expiración del tiempo), pone `terminado = true` para que los solvers dejen de buscar soluciones.
 6. Devuelve un array de la forma `new String[]{ solucionCifrasJ1, solucionCifrasJ2 }`, con la solución del jugador 1 en la primera posición y la del jugador 2 en la segunda. Después, deja el monitor preparado para la siguiente ronda limpiando el estado de las soluciones y de los atributos que emplea ese método (en el caso de Cifras: `numeros` y `objetivo`).
 
 > [!WARNING]
