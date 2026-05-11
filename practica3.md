@@ -151,7 +151,7 @@ Implementación esperada de `publicarPruebaCifras` (y análogamente `publicarPru
 
 Implementación esperada de `getObjetivo()` (y análogamente `getLetras()`):
 
-1. Mientras `objetivo <= 0` (o `letras == null`) **y** no esté `terminado`, llama a `wait()`.
+1. Mientras `objetivo <= 0` (o `letras == null`), llama a `wait()`.
 2. Devuelve el valor actual.
 
 > El chequeo de `terminado` en `getObjetivo()` es necesario para evitar que un solver quede bloqueado para siempre al final del juego, cuando ya no llegarán más pruebas.
